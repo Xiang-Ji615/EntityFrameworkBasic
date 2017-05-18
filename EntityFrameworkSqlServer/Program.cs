@@ -8,6 +8,14 @@ using System.Threading.Tasks;
 
 namespace EntityFrameworkSqlServer
 {
+    class Logger
+    {
+        public static void Log(String msg)
+        {
+            Console.WriteLine(msg);
+        }
+    }
+
     class Program
     {
         static void Main(string[] args)
@@ -48,8 +56,10 @@ namespace EntityFrameworkSqlServer
         {
             User user;
 
+
             using(var context = new UserContext())
             {
+                context.Database.Log = Logger.Log;
                 Console.WriteLine("Start GetStudent...");
 
                 user = await context.users.FindAsync(8);
