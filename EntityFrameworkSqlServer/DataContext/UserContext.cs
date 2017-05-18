@@ -21,7 +21,7 @@ namespace EntityFrameworkSqlServer.DataContext
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().HasRequired<UserRole>(user => user.userRole).WithMany(role => role.users).HasForeignKey(user => user.RoleId).WillCascadeOnDelete();
+            modelBuilder.Entity<User>().HasOptional<UserRole>(user => user.userRole).WithMany(role => role.users).HasForeignKey(user => user.RoleId).WillCascadeOnDelete();
         }
     }
 }

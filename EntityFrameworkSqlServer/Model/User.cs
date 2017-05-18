@@ -14,7 +14,7 @@ namespace EntityFrameworkSqlServer.Model
         Int32 userId;
         String username;
         String password;
-        Int32 roleId;
+        Int32? roleId;
 
         
         public virtual UserRole userRole { get; set; }
@@ -25,6 +25,6 @@ namespace EntityFrameworkSqlServer.Model
         public int UserId { get => userId; set => userId = value; }
         public string Username { get => username; set => username = value; }
         public string Password { get => password; set => password = value; }
-        public int RoleId { get => roleId; set => roleId = value; }
+        public int? RoleId { get => roleId; set => roleId = value; }
     }
 }
